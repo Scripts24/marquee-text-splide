@@ -1,8 +1,107 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
 
+:root {
+    --pr-color    : #afc50a;
+    --second-color: #0a0a0a;
+    --cubic-bz    : cubic-bezier(.9, 0, .1, 1);
+    --fz--big     : 80px;
+    --indent      : 100px;
+}
+
 * {
     padding    : 0;
     margin     : 0;
     box-sizing : border-box;
+    list-style : none;
     font-family: "Syne", sans-serif;
+    font-weight: 800;
+}
+
+body {
+    background: var(--second-color);
+}
+
+.wrapp {
+    position: relative;
+    width   : 100%;
+    height  : auto;
+    overflow: hidden;
+    z-index : 1;
+}
+
+.section {
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    width          : 100%;
+    height         : 100vh;
+}
+
+.content {
+    width  : 100%;
+    height : auto;
+    padding: 0 var(--indent);
+}
+
+.title {
+    font-size     : var(--fz--big);
+    text-transform: uppercase;
+    color         : var(--pr-color);
+}
+
+.title span {
+    display            : block;
+    color              : transparent;
+    -webkit-text-stroke: 1px var(--pr-color);
+}
+
+/**Marquee animación*/
+
+.marquee {
+    margin-top: 100px;
+}
+
+.marquee+.marquee {
+    margin-top: 0;
+    border-top: 1px solid var(--pr-color);
+}
+
+.marquee__bl {
+    background: #171717;
+    padding   : 20px 0;
+}
+
+.marquee__text {
+    display       : inline-block;
+    position      : relative;
+    padding-right : 120px;
+    font-size     : 60px;
+    text-transform: uppercase;
+    color         : var(--pr-color);
+}
+
+.marquee__text span {
+    color              : transparent;
+    -webkit-text-stroke: 1px var(--pr-color);
+}
+
+.marquee__text img {
+    display  : block;
+    position : absolute;
+    width    : 80px;
+    height   : 80px;
+    top      : 50%;
+    right    : 0;
+    transform: translateY(-50%);
+    animation: rotate 8s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: translateY(-50%) rotate(0);
+    }
+
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
 }
